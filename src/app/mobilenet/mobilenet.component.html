@@ -1,0 +1,18 @@
+<img id="hidden_img" class="d-none"/>
+<div class="row mt-3 mb-3">
+  <div class="col-10">
+    <input class="form-control" type="file" (change)="onImageChange($event)">
+  </div>
+  <div class="col-2">
+    <button class="btn btn-primary" [attr.disabled]="isImageProvided" (click)="classify()">Classify</button>
+  </div>
+</div>
+<figure class="figure">
+  <img id="display_img" src="" class="figure-img img-fluid rounded" style="height: 300px">
+</figure>
+<ul>
+  <li *ngFor="let item of results">
+    {{item.className}}: {{item.probability}}
+  </li>
+</ul>
+

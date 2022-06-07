@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="w-50 border border-3 rounded p-3 m-1">
+    <app-camera (pictureTaken)="handleImage($event)"></app-camera>
+    <div *ngIf="webcamImage">
+      <img id="hidden_pic" class="d-none" [src]="webcamImage.imageAsDataUrl" width="224px" height="224px"/>
+    </div>
+    <button type="button" class="btn btn-primary m-1" (click)="handleButton(0)">Rock</button>
+    <button type="button" class="btn btn-primary m-1" (click)="handleButton(1)">Paper</button>
+    <button type="button" class="btn btn-primary m-1" (click)="handleButton(2)">Scissors</button>
+    <div>Rock Samples: {{rockSamples}}</div>
+    <div>Paper Samples: {{paperSamples}}</div>
+    <div>Scissors Samples: {{scissorsSamples}}</div>
+    <button type="button" class="btn btn-primary m-1" id="train" (click)="train()">Train Network</button>
+    <div *ngIf="isCollecting" class="alert alert-info" id="isNotTrainedAlert" role="alert">
+      A model is not trained until you click the "Train Network" button.
+    </div>
+    <div *ngIf="isTraining" class="alert alert-primary" id="isTrainingAlert" role="alert">
+      A model is training by using the data you have provided.
+    </div>
+    <div *ngIf="isTrained" class="alert alert-success" id="isTrainedAlert" role="alert">
+      A model is trained and ready to use.
+    </div>
+    <div id="dummy">Once training is complete, click 'Start Predicting' to see predictions, and 'Stop Predicting' to end
+    </div>
+    <button type="button" id="startPredicting" class="btn btn-primary m-1" (click)="startPredicting()">Start
+      Predicting
+    </button>
+    <button type="button" id="stopPredicting" class="btn btn-primary m-1" (click)="stopPredicting()">Stop Predicting
+    </button>
+    <div id="prediction"></div>
+  </div>
+</div>
