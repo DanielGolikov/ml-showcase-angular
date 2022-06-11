@@ -1,7 +1,7 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {WebcamImage} from "ngx-webcam";
-import {CameraComponent} from "../camera/camera.component";
-import RPSDataset from "../../assets/js/rps-dataset";
+import {CameraComponent} from "./camera/camera.component";
+import RPSDataset from "./rps-dataset";
 import * as tf from '@tensorflow/tfjs';
 import '@tensorflow/tfjs-backend-cpu';
 import {Tensor3D} from "@tensorflow/tfjs-node";
@@ -40,7 +40,7 @@ export class RockPaperScissorsComponent implements OnInit {
 
   async ngOnInit() {
     this.mobilenet = await this.loadMobilenet();
-    tf.tidy(() => this.mobilenet.predict(this.getTensorImage()));
+    //tf.tidy(() => this.mobilenet.predict(this.getTensorImage()));
   }
 
   handleButton(id: number) {

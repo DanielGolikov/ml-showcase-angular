@@ -6,14 +6,22 @@ import {RockPaperScissorsComponent} from './rock-paper-scissors/rock-paper-sciss
 import {WebcamModule} from 'ngx-webcam';
 import {MobilenetComponent} from './mobilenet/mobilenet.component';
 import {RouterModule} from '@angular/router';
-import {CameraComponent} from "./camera/camera.component";
+import {CameraComponent} from "./rock-paper-scissors/camera/camera.component";
+import {CustomAnalyzerComponent} from './fictional-character-classifier/custom-analyzer/custom-analyzer.component';
+import {ToxicityAnalyzerComponent} from './toxicity-analyzer/toxicity-analyzer.component';
+import { AutomataComponent } from './fictional-character-classifier/automata-classifier/automata.component';
+import { DisneyClassifierComponent } from './fictional-character-classifier/disney-classifier/disney-classifier.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RockPaperScissorsComponent,
     MobilenetComponent,
-    CameraComponent
+    CameraComponent,
+    CustomAnalyzerComponent,
+    ToxicityAnalyzerComponent,
+    AutomataComponent,
+    DisneyClassifierComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +29,11 @@ import {CameraComponent} from "./camera/camera.component";
     RouterModule.forRoot([
       {path: 'rps', component: RockPaperScissorsComponent},
       {path: 'mobilenet', component: MobilenetComponent},
+      {path: 'custom', component: CustomAnalyzerComponent},
+      {path: 'toxicity-analyzer', component: ToxicityAnalyzerComponent},
+      {path: 'automata-classifier', component: AutomataComponent},
+      {path: 'disney-classifier', component: DisneyClassifierComponent},
+      {path: '', redirectTo: '/rps', pathMatch: 'full'},
     ]),
   ],
   providers: [],

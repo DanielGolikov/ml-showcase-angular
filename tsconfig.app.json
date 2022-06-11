@@ -6,7 +6,9 @@
     "types": [
       "long"
     ],
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "esModuleInterop": true
   },
   "files": [
     "src/main.ts",

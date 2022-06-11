@@ -2,7 +2,7 @@
   <div>
     <webcam [trigger]="triggerObservable" (imageCapture)="handleImage($event)" *ngIf="showWebcam"
             [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" [videoOptions]="videoOptions" (cameraSwitched)="cameraWasSwitched($event)"
-            (initError)="handleInitError($event)" [imageQuality]="1" [width]="224" [height]="224"></webcam>
+            (initError)="handleInitError($event)" [imageQuality]="1" [width]="cameraWidth"></webcam>
     <br/>
     <div class="actionBtn" (click)="showNextWebcam(true);" title="Switch Camera">🔁</div>
   </div>

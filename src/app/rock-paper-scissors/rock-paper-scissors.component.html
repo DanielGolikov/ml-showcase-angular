@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="w-50 border border-3 rounded p-3 m-1">
-    <app-camera (pictureTaken)="handleImage($event)"></app-camera>
+  <div class="border border-3 rounded p-3 m-1">
+    <app-camera (pictureTaken)="handleImage($event)" class="w-100"></app-camera>
     <div *ngIf="webcamImage">
       <img id="hidden_pic" class="d-none" [src]="webcamImage.imageAsDataUrl" width="224px" height="224px"/>
     </div>
