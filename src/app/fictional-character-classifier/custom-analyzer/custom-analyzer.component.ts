@@ -33,7 +33,7 @@ export class CustomAnalyzerComponent implements OnInit {
     this.display_img = document.getElementById("display_img") as HTMLImageElement;
 
     this.model = await tf.loadLayersModel(environment.apiUrl + this.modelUrl);
-    this.model.summary();
+    //this.model.summary();
 
   }
 
@@ -57,6 +57,9 @@ export class CustomAnalyzerComponent implements OnInit {
     const results = this.model.predict(tensor) as Tensor;
     this.result.emit(results);
 
+    if (!environment.production) {
+      console.log(results);
+    }
 
   }
 
