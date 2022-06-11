@@ -30,7 +30,7 @@ export class DisneyClassifierComponent implements OnInit {
         this.results = "It is a Minion";
         break;
       case 3:
-        this.results = "It is a Olaf";
+        this.results = 'It is a Olaf from "Frozen"';
         break;
       case 4:
         this.results = "It is a Winnie the Pooh";
@@ -39,7 +39,6 @@ export class DisneyClassifierComponent implements OnInit {
         this.results = "It is a Pumba";
         break;
     }
-
   }
 
   clearResults() {
