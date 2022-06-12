@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Tensor} from "@tensorflow/tfjs";
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-disney-classifier',
@@ -15,6 +16,9 @@ export class DisneyClassifierComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (!environment.production) {
+      console.log("disney initialized")
+    }
   }
 
   printResults(results: Tensor) {

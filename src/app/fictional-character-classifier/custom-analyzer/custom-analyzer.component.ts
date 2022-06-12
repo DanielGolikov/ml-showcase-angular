@@ -29,10 +29,15 @@ export class CustomAnalyzerComponent implements OnInit {
   }
 
   async ngOnInit() {
+    if (!environment.production) {
+      console.log(environment.apiUrl + this.modelUrl)
+      console.log("custom initialized")
+    }
     this.hidden_img = document.getElementById('hidden_img') as HTMLImageElement;
     this.display_img = document.getElementById("display_img") as HTMLImageElement;
 
     this.model = await tf.loadLayersModel(environment.apiUrl + this.modelUrl);
+
     //this.model.summary();
 
   }
@@ -58,7 +63,7 @@ export class CustomAnalyzerComponent implements OnInit {
     this.result.emit(results);
 
     if (!environment.production) {
-      console.log(results);
+      console.log(results.dataSync());
     }
 
   }
