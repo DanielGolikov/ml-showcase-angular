@@ -9,7 +9,7 @@ import {environment} from '../../../environments/environment';
 })
 export class DisneyClassifierComponent implements OnInit {
   modelUrl = "/disney/model.json";
-
+  name: string = 'disney';
   results!: string;
 
   constructor() {
@@ -17,7 +17,7 @@ export class DisneyClassifierComponent implements OnInit {
 
   ngOnInit(): void {
     if (!environment.production) {
-      console.log("disney initialized")
+      //console.log("disney initialized")
     }
   }
 

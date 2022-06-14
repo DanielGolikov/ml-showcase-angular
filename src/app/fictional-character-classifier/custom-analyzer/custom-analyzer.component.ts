@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import * as tf from '@tensorflow/tfjs';
+import {Tensor} from '@tensorflow/tfjs';
 import '@tensorflow/tfjs-backend-cpu';
-import {Tensor} from "@tensorflow/tfjs";
 import {Tensor3D} from "@tensorflow/tfjs-node";
 import {environment} from '../../../environments/environment';
 
@@ -19,25 +19,49 @@ export class CustomAnalyzerComponent implements OnInit {
   @Input()
   modelUrl!: string;
 
+  @Input()
+  name!: string;
+
   @Output()
   result = new EventEmitter<Tensor>();
 
   @Output()
   imageChange = new EventEmitter();
 
+  progress: number = 0;
+  isLoaded = false;
+
+  displayImage(e: number) {
+    //console.log(e);
+    this.progress = Math.trunc(e * 100);
+    if (this.progress === 100) {
+      this.isLoaded = true;
+    }
+  }
+
   constructor() {
   }
 
   async ngOnInit() {
-    if (!environment.production) {
-      console.log(environment.apiUrl + this.modelUrl)
-      console.log("custom initialized")
-    }
     this.hidden_img = document.getElementById('hidden_img') as HTMLImageElement;
     this.display_img = document.getElementById("display_img") as HTMLImageElement;
 
-    this.model = await tf.loadLayersModel(environment.apiUrl + this.modelUrl);
-
+    try {
+      this.model = await tf.loadLayersModel(`indexeddb://${this.name}`);
+      this.displayImage(1)
+      console.log("model loaded from indexeddb");
+    } catch (e) {
+      if (!environment.production) {
+        console.log(environment.apiUrl + this.modelUrl);
+        //console.log("custom initialized")
+      }
+      this.model = await tf.loadLayersModel(environment.apiUrl + this.modelUrl, {
+        onProgress: this.displayImage.bind(this),
+      });
+      console.log("model downloaded")
+      await this.model.save(`indexeddb://${this.name}`);
+      console.log("model saved to indexeddb");
+    }
     //this.model.summary();
 
   }
@@ -85,5 +109,4 @@ export class CustomAnalyzerComponent implements OnInit {
     this.isImageProvided = true;
     this.imageChange.emit();
   }
-
 }

@@ -1,2 +1,3 @@
-<app-custom-analyzer [modelUrl]="modelUrl" (result)="printResults($event)" (imageChange)="clearResults()"></app-custom-analyzer>
+<app-custom-analyzer [modelUrl]="modelUrl" (result)="printResults($event)" (imageChange)="clearResults()"
+                     [name]="name"></app-custom-analyzer>
 <p>{{results}}</p>

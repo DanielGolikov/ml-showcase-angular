@@ -10,7 +10,7 @@ import {environment} from '../../../environments/environment';
 export class AutomataComponent implements OnInit {
 
   modelUrl = "/nier/model.json";
-
+  name = 'nier';
   results!: string;
 
   constructor() {
@@ -18,7 +18,7 @@ export class AutomataComponent implements OnInit {
 
   ngOnInit(): void {
     if (!environment.production) {
-      console.log("automata initialized")
+      //console.log("automata initialized")
     }
   }
 

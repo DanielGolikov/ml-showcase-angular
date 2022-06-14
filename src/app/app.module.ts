@@ -11,6 +11,7 @@ import {CustomAnalyzerComponent} from './fictional-character-classifier/custom-a
 import {ToxicityAnalyzerComponent} from './toxicity-analyzer/toxicity-analyzer.component';
 import { AutomataComponent } from './fictional-character-classifier/automata-classifier/automata.component';
 import { DisneyClassifierComponent } from './fictional-character-classifier/disney-classifier/disney-classifier.component';
+import { DropzoneDirective } from './fictional-character-classifier/custom-analyzer/dropzone.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DisneyClassifierComponent } from './fictional-character-classifier/disn
     CustomAnalyzerComponent,
     ToxicityAnalyzerComponent,
     AutomataComponent,
-    DisneyClassifierComponent
+    DisneyClassifierComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,
