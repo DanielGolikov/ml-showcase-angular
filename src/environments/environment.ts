@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:8080/api',
-  // apiUrl: 'https://ml-showcase-backend-p4eq5idhmq-uc.a.run.app/api',
+  //apiUrl: 'http://localhost:8080/api',
+  apiUrl: 'https://ml-showcase-backend-qvdwbi5dta-uc.a.run.app/api',
 };
 
 /*

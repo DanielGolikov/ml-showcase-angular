@@ -4,9 +4,21 @@
     <div *ngIf="webcamImage">
       <img id="hidden_pic" class="d-none" [src]="webcamImage.imageAsDataUrl" width="224px" height="224px"/>
     </div>
-    <button type="button" class="btn btn-primary m-1" (click)="handleButton(0)">Rock</button>
-    <button type="button" class="btn btn-primary m-1" (click)="handleButton(1)">Paper</button>
-    <button type="button" class="btn btn-primary m-1" (click)="handleButton(2)">Scissors</button>
+
+
+    <div class="row">
+      <div class="col-8">
+        <button type="button" class="btn btn-primary m-1" (click)="handleButton(0)">Rock</button>
+        <button type="button" class="btn btn-primary m-1" (click)="handleButton(1)">Paper</button>
+        <button type="button" class="btn btn-primary m-1" (click)="handleButton(2)">Scissors</button>
+      </div>
+      <div class="col-4">
+        <button type="button" class="btn btn-info btn-sm float-end" data-bs-toggle="modal" data-bs-target="#helpModal">
+          Help
+        </button>
+      </div>
+    </div>
+    <app-help-modal></app-help-modal>
     <div>Rock Samples: {{rockSamples}}</div>
     <div>Paper Samples: {{paperSamples}}</div>
     <div>Scissors Samples: {{scissorsSamples}}</div>

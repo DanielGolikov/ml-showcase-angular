@@ -40,6 +40,7 @@ export class RockPaperScissorsComponent implements OnInit {
 
   async ngOnInit() {
     this.mobilenet = await this.loadMobilenet();
+    (document.querySelector('[data-bs-target="#helpModal"]') as HTMLButtonElement).click();
     //tf.tidy(() => this.mobilenet.predict(this.getTensorImage()));
   }
 
