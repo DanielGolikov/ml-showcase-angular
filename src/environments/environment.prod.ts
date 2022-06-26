@@ -1,5 +1,4 @@
 export const environment = {
   production: true,
-  //@ts-ignore
-  apiUrl: process.env["API_URL"],
+  apiUrl: 'https://ml-showcase-backend-qvdwbi5dta-uc.a.run.app/api',
 };
