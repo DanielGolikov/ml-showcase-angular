@@ -3,7 +3,7 @@ import * as tf from '@tensorflow/tfjs';
 import {Tensor} from '@tensorflow/tfjs';
 import '@tensorflow/tfjs-backend-cpu';
 import {Tensor3D} from "@tensorflow/tfjs-node";
-import {environment} from '../../../environments/environment';
+import {environment} from '../../../../environments/environment';
 
 @Component({
   selector: 'app-custom-analyzer',
