@@ -1,5 +1,8 @@
 # MLShowcaseAngular
-This project shows how [TensorflowJS](https://github.com/tensorflow/tfjs) use model converters to run pre-existing TensorFlow models right in the browser.
+
+MLShowcaseAngular is a project that shows how [TensorflowJS](https://github.com/tensorflow/tfjs) use model converters to run pre-existing TensorFlow models right in the browser.
+
+To use cuurent version of the appliction, see the MLShowcaseAngular [website](https://danielgolikov.com).
 
 The whole project is written in Angular 14
 
